@@ -9,6 +9,9 @@ var M = 1000;
 var input = [];
 var output = [];
 
+function repeat(str, times) {
+    return new Array(times + 1).join(str);
+}
 
 function convertor(number){
   if (!isNaN(number) === false){
@@ -49,56 +52,114 @@ function convertor(number){
       // debugger;
       number = number.toString();
       input = number.split("");
-      console.log(input);
+      console.log(input.length);
       for(i = input.length - 1;i >= 0; --i){
         var numberToConvert = parseInt(input[i]);
         console.log(numberToConvert);
+        console.log(i);
         var romanLetter;
-        console.log(numberToConvert);
-        if (i === 1){
+        debugger;
+        // convert the first digit to roman number
+        if (i === input.length-1){
+          console.log(i)
           for(j = 1; j<10; j++){
+
             if (numberToConvert === j){
               romanLetter = roman_number[j-1];
-              output.splice(0,0,romanLetter)
+              output.splice(0,0,romanLetter);
               console.log(romanLetter);
+              break;
             }
           }
         }
-        // if(numberToConvert === "1"){
-        //   romanLetter = "I";
-        // }
-        // if(numberToConvert === "2"){
-        //   romanLetter = "II";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "3"){
-        //   romanLetter = "III";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "4"){
-        //   romanLetter = "IV";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "5"){
-        //   romanLetter = "V";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "6"){
-        //   romanLetter = "VI";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "7"){
-        //   romanLetter = "VII";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "8"){
-        //   romanLetter = "VII";
-        //   console.log(romanLetter);
-        // }
-        // if(numberToConvert === "9"){
-        //   romanLetter = "IX";
-        //   console.log(romanLetter);
-        // }
+        // convert the 2nd digit to roman numeral
+        if (i === input.length-2){
+          console.log(i);
+          for(j = 1; j<10; j++){
+            if (numberToConvert === 9){
+              console.log(numberToConvert);
+              romanLetter = "XC";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === 4){
+              romanLetter = "XL";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === j){
+              console.log(numberToConvert);
+              if (5<numberToConvert && numberToConvert<9){
+                var multiple = numberToConvert - 5;
+                var letterX = repeat("X", multiple);
+                output.splice(0,0,"L" + letterX);
+                break;
+              }
+              else{
+                var letterX = repeat("X", numberToConvert);
+                output.splice(0,0,letterX);
+                break;
+              }
+            }
+          }
+        }
+        // convert the 3rd digit to roman numeral
+        if (i === input.length -3){
+          for(j = 1; j<10; j++){
+            if (numberToConvert === 9){
+              romanLetter = "CM";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === 4){
+              romanLetter = "CD";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === j){
+              if (5<numberToConvert && numberToConvert<9){
+                var multiple = numberToConvert - 5;
+                var letterC = repeat("C", multiple);
+                output.splice(0,0,"D" + letterC);
+                break;
+              }
+              else{
+                var letterC = repeat("C", numberToConvert);
+                output.splice(0,0,letterC);
+                break;
+              }
+            }
+          }
+        }
+        // convert the 4th digit to roman numeral
+        if (i === input.length -4){
+          for(j = 1; j<10; j++){
+            if (numberToConvert === 9){
+              // 10000 is 10&#773
+              romanLetter = "M" + "X&#773";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === 4){
+              romanLetter = "M" + "V&#773";
+              output.splice(0,0,romanLetter);
+              break;
+            }
+            else if (numberToConvert === j){
+              if (5<numberToConvert && numberToConvert<9){
+                var multiple = numberToConvert - 5;
+                var letterC = repeat("C", multiple);
+                output.splice(0,0,"D" + letterC);
+                break;
+              }
+              else{
+                var letterC = repeat("C", numberToConvert);
+                output.splice(0,0,letterC);
+                break;
+              }
+            }
+          }
+        }
       }
     }
   }
