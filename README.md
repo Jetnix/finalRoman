@@ -12,7 +12,7 @@ _This program converts a regular number to a roman number._
 
 | Behavior                                                                                                | Input Example     | Output Example  |
 | -------------                                                                                           |:-------------:    | -----:          |
-| cannot enter none numerical character                                                                   | right-aligned     | $1600           |
+| cannot enter none numerical character                                                                   | $#!               | alert           |
 | 0 is nulla                                                                                              | 0                 |   nulla         |
 | Repeating a numeral up to three times represents addition of the number.                                |     III           |      3          |
 | Only I, X, C, and M can be repeated. V, L, and D cannot be                                              |      XXX, VVV     |     30          |
