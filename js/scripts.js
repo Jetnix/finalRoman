@@ -16,36 +16,16 @@ function convertor(number){
   else if (number === ""){
     alert("Invalid Entry. Enter an arabic number.");
   }
-  // else {
-  //   number = parseInt(number);
-  //   // debugger;
-  //   if (number === 1){
-  //     output.push("I");
-  //   }
-  //   else if (number === 5){
-  //     output.push("V");
-  //   }
-  //   else if (number === 10){
-  //     output.push("X");
-  //   }
-  //   else if (number === 50){
-  //     output.push("L");
-  //   }
-  //   else if (number === 100){
-  //     output.push("C");
-  //   }
-  //   else if (number === 500){
-  //     output.push("D");
-  //   }
-  //   else if (number === 1000){
-  //     output.push("M");
-  //
-  //   }
+
   else {
     // debugger;
     number = number.toString();
     input = number.split("");
-    console.log(input.length);
+    // if (input.length>4){
+    //   alert("@#$%^&*_*%$#WERT");
+    //   break;
+    // }
+
     for(i = input.length - 1;i >= 0; --i){
       var numberToConvert = parseInt(input[i]);
       console.log(numberToConvert);
@@ -176,12 +156,16 @@ function convertor(number){
   return finalRoman;
 
 }
+function resetFields(){
+  $("#display").val(" ");
 
+}
 $(document).ready(function(){
   $("form#roman_number_convertor").submit(function(event){
     event.preventDefault();
+    resetFields();
     var number = $("input#arabic_number").val();
-    $("#display").text(convertor(number));
-  });
+    $("#display").append(convertor(number));
 
+  });
 });
